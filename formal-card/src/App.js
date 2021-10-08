@@ -3,7 +3,7 @@ import './App.css';
 
 const status="initial";
 function App() {
- const [words, setwords] = useState({
+ const [words, setWords] = useState({
     word1: '',
     word3: '',
     word4: '',
@@ -22,18 +22,22 @@ function App() {
 
   const [showWord, setShowWord] = useState("");
 
-  function handleSubmit(event) {
+  function onSubmit(event) {
     // Evita comportamiento default
     event.preventDefault();
-    setShowWord(words)
+    setShowWord(words);
+    if (status.value==="complete") {
+      ('.formInputs').prop('disabled', true);
+    }
   }
 
-  function onSubmit(event){
-  event.preventDefault(); //event no comportamiento default
-    status="complete";
-
-
-    }
+  /*function handleChange(event) {
+    const value = event.target.value;
+    setWords({
+      ...words,
+      [event.target.name]: value,
+    });
+  }*/
 
   function onClick(event){
       status= "initial";
@@ -48,28 +52,39 @@ function App() {
       <form >
         <div className="inputs">
           <label htmlFor="word1">INCREDIBLE NEGATIVE ADJETIVE</label>
-          <input id="word1" type="text" />
+          <input className="formInputs" id="word1" type="text" name="word1" /*onChange={handleChange}*//>
         </div>
 
-          <label>UNIQUE/RARE/ENDANGERED</label>
-          <input type="text" />
-          
-          <label>BORING/MISERABLE/STUPID LITTLE</label>
-          <input type="text" />
+        <div className="inputs">
+          <label htmlFor="word2">UNIQUE/RARE/ENDANGERED</label>
+          <input id="word1" type="text" value={words.word2} /*onChange={handleChange}*//>
+        </div>
 
+        <div className="inputs">
+          <label htmlFor="word3">INCREDIBLE NEGATIVE ADJETIVE</label>
+          <input id="word1" type="text" value={words.word3}  /*onChange={handleChange}*//>
+        </div>
+
+        <div className="inputs">
           <label>A TERRIBLE FEELING</label>
           <input type="text" />
+        </div>
 
+        <div className="inputs">
           <label>BORING/MISERABLE/STUPID LITTLE</label>
           <input type="text" />
+        </div>
 
+        <div className="inputs">
           <label>BORING/MISERABLE/STUPID LITTLE</label>
           <input type="text" />
+        </div>
 
       <button onSubmit={onSubmit}>GENERATE</button>
+      <button onClick={onClick}>CLEAR</button>
       
       </form>
-      <input type="Reset" value="Borrar todo" onClick={onClick}/>
+      
       
 
 
