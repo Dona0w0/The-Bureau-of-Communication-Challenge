@@ -1,4 +1,8 @@
-html{ background-color: #F1F1F1;}
+
+
+html{ background-color: #F1F1F1;
+
+}
 
 .App{
   display: flex;
@@ -11,21 +15,30 @@ html{ background-color: #F1F1F1;}
 
 .FormatoCarta {
   background:radial-gradient(#f7eab5, #a68236);
-  margin: 40px;
-  padding: 35px;
+  margin: 20px;
+  padding: 20px;
   width: 70%;
   box-shadow: 8px 8px 20px black;
 
 }
+#contorno{ 
+  border: double 10px; 
+  padding-top:  0px;
+  border-color: black;
+  padding:40px;
+   }
 
-.formulario{
+#Titulo{
+     font-size: 50px;   
+     line-height:5px;
 
 }
+
 form{
   background-color: white;
-  margin: 40px;
-  padding:20px;
-  height: 500px;
+  margin: 10px;
+  padding:15px;
+  height: 600px;
   width: 900px;
   display: flex;
   flex-wrap: wrap;
@@ -38,16 +51,39 @@ form{
 button{
   background-color: white;
   color: black;
-  border: 2px solid #4CAF50;
   border-radius: 8px;
   padding: 14px 40px;
   transition-duration: 0.4s;
 }
 
-button:hover {
-  background-color: #4CAF50; /* Green */
+#button-generate{
+  border: 2px solid #ffb195;
+}
+
+#button-generate:hover {
+  background-color: #ffb195; 
   color: white;
 }
+
+#button-random{
+  border: 2px solid #ff7878;
+}
+
+#button-random:hover {
+  background-color: #ff7878; 
+  color: white;
+}
+
+#button-reset{
+  border: 2px solid #9b2e44;
+}
+
+#button-reset:hover {
+  background-color: #9b2e44; 
+  color: white;
+}
+
+
 
 
 
@@ -63,14 +99,14 @@ input[type=text]:focus {
   border:none;
   background-color: #cdd7ea;
 }
+.inputs{ margin:  5px; }
 
-#titulo{
 
-}
 h1{
   font-family: 'Fleur De Leah';
   text-align: center;
-  font-size: 80px;
+  font-size: 65px;
+  line-height:20px;
   }
 
 h4{
@@ -80,11 +116,33 @@ h4{
 
 p{
   font-family: 'Nanum Myeongjo', serif;
-  font-size: 20px;
+  font-size: 17px;
+}
+
+#dearest{
+  font-family: 'Playfair Display SC', serif;
+  text-align:center ;
+  font-size: 25px;
+  line-height:15px;
 }
 
  #nombres{
   font-family: 'Fleur De Leah', cursive;
   text-align: center;
   font-size: 50px;
+  line-height:15px;
+}
+
+#once{
+  font-family: 'Playfair Display SC', serif;
+  text-align:center ;
+  font-size: 35px;
+  line-height:15px;
+}
+
+ #forever{
+  font-family: 'Playfair Display SC', serif;
+  
+  font-size: 25px;
+  line-height:15px;
 }
