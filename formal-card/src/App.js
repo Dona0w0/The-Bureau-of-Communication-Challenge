@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 
@@ -28,6 +28,21 @@ function App() {
   const [active, setActive] = useState(false);
   const [listCont, setListCont]= useState(list);
 
+
+ function vacio() {
+    const arrWord = Object.keys(list).map((propiedad) => list[propiedad]);
+    for (let i = 0; i < arrWord.length; i++)
+    {
+      if(arrWord[i] === "") {
+        return  true;
+        
+      }
+    }
+    return  false;
+  }
+  
+
+
   function handleChange(event) {
     const value = event.target.value;
     setList({
@@ -38,9 +53,16 @@ function App() {
 
   function onSubmit(event) {
     event.preventDefault();// Evita comportamiento default
+    
+    if (!vacio()) {
     setListCont(list);
-    setActive(true);
-    setStatus("complete");
+        setActive(true);
+        setStatus("complete");
+    }
+    else{  
+        alert("Stop! Complete all inputs")
+        }
+    
   }
 
 
@@ -59,21 +81,23 @@ function App() {
 
      <div className="App">
 
+        <h1 id="Titulo">Marriage Proposal</h1>
+
         <div className ="formulario">
           <form >
 
                 {/*word1*/}
               <div className="inputs">
                 <label htmlFor="word1Txt">Incredibly negative adjetive</label><br></br>
-                <input id="word1Txt" className="formInputs"  type="text" 
-                name="word1" onChange={handleChange}  value={list.word1} readOnly={active}/>
+                <input required="required" id="word1Txt" className="formInputs"  type="text" 
+                name="word1" onChange={handleChange}  value={list.word1} readOnly={active} required="required"/>
               </div>
 
             {/*word2*/}
             <div className="inputs">
               <label htmlFor="word2Txt">Unique/rare/endangeres</label><br></br>
               <input id="word2Txt" className="formInputs"  type="text" 
-              name="word2" onChange={handleChange}  value={list.word2} readOnly={active}/>
+              name="word2" onChange={handleChange}  value={list.word2} readOnly={active} />
             </div>
 
             {/*word3*/}
@@ -106,7 +130,7 @@ function App() {
 
             {/*word7*/}
             <div className="inputs">
-              <label htmlFor="word7Txt">Unique characteristic</label><br></br>
+              <label htmlFor="word7Txt">Unique characteristic of a person</label><br></br>
               <input id="word7Txt" className="formInputs"  type="text" 
               name="word7" onChange={handleChange}  value={list.word7} readOnly={active}/>
             </div>
@@ -170,7 +194,6 @@ function App() {
 
           <button type="submit" id="button-generate" onClick={onSubmit}>GENERATE</button>
           <button type="reset" id="button-reset" onClick={onReset}>RESET</button>
-          <button type="reset" id="button-reset" onClick={onReset}>RESET</button>
           
           </form>
         </div>
@@ -178,40 +201,42 @@ function App() {
 
       {status === "complete" && <React.Fragment>
           <div className="FormatoCarta">
-            <h1>Marriage Proposal</h1>
-            <h4 id="dearest">TO MY DEAREST</h4>
-            <p id="text">
-              Today, whilst pondering the <i>{list.word1}</i> the state of the human condition,
-              realized we together have something particularity <i>{list.word2}</i>. 
-              While most people are stuck walking blindly toward death, we have been given 
-              the unique opportunuty to rise above our <i>{list.word3}</i> lives, and perhaps 
-              even experience a brieaf respite of joy in this horrble world.
-            </p>
+            <div id="contorno" >  
+                <h1>Marriage Proposal</h1>
+              <h4 id="dearest">TO MY DEAREST</h4>
+              <p id="text">
+                Today, whilst pondering the <i>{list.word1}</i> the state of the human condition,
+                realized we together have something particularity <i>{list.word2}</i>. 
+                While most people are stuck walking blindly toward death, we have been given 
+                the unique opportunuty to rise above our <i>{list.word3}</i> lives, and perhaps 
+                even experience a brieaf respite of joy in this horrible world.
+              </p>
 
-             <p id="text">
-               What brougty on these thoughts? I recently noticed that I cannot be away from 
-               you without intese feeling of <i>{list.word4}</i>, which serve only as a 
-               reminder of the <i>{list.word5}</i> and <i>{list.word6}</i> I am filled with when I am
-               by your side. Fortunately, may dear, I am quite clever, anf have found a solution:
-             </p>
+               <p id="text">
+                 What brougty on these thoughts? I recently noticed that I cannot be away from 
+                 you without intese feeling of <i>{list.word4}</i>, which serve only as a 
+                 reminder of the <i>{list.word5}</i> and <i>{list.word6}</i> I am filled with when I am
+                 by your side. Fortunately, may dear, I am quite clever, and have found a solution:
+               </p>
 
-             <h2 id="once"> WE MUST WED AT ONCE!</h2>
+               <h2 id="once"> WE MUST WED AT ONCE!</h2>
 
-             <p id="text">
+               <p id="text">
                We are perfect together your <i>{list.word7}</i> could not possibile
                compliment my <i>{list.word8}</i> amy more than the sky can hide from the sun.
                Truly, by marrying, we will form a union that will serve as an example to all
-               mankind. Lesser couples will look toward us as a shining beacon of 
-               <i>{list.word9}</i>, an our <i>{list.word10}</i> children will be the finest
+               mankind. Lesser couples will look toward us as a shining beacon 
+               of <i>{list.word9}</i>, an our <i>{list.word10}</i> children will be the finest
                example of <i>{list.word11}</i> know to man.
              </p>
 
              <p id="text">
-               If you too can not deny the logic in this plan, meet me <i>{list.word12}</i>
-               at <i>{list.word13}</i> and we will make it official. Do not delay!
+               If you too can not deny the logic in this plan, meet me <i>{list.word12}</i> at <i>{list.word13}</i> and we will make it official. Do not delay!
              </p>
-             <h3>Then We will Forever be known as:</h3>
-             <h3 id="nombres">{list.yourName}   &   {list.theirName}</h3>
+             <h3 id="forever">Then We will Forever be known as:</h3>
+             <h3 id="nombres">{list.yourName}    &   {list.theirName}</h3>
+            </div>
+
         </div>
       </React.Fragment>}
     </div>
