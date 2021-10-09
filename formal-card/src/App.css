@@ -1,13 +1,74 @@
+html{ background-color: #F1F1F1;}
 
+.App{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #F1F1F1;
+
+}
 
 .FormatoCarta {
-  background: #e5cf8a;
+  background:radial-gradient(#f7eab5, #a68236);
   margin: 40px;
   padding: 35px;
+  width: 70%;
+  box-shadow: 8px 8px 20px black;
+
+}
+
+.formulario{
+
+}
+form{
+  background-color: white;
+  margin: 40px;
+  padding:20px;
+  height: 500px;
+  width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
+  justify-content:space-around  ;
+
+}
+
+button{
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  padding: 14px 40px;
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+
+
+input {
+    height:30px;
+    width:  250px;
+  border: none;
+  
+  background: #e5e5e5;
+}
+
+input[type=text]:focus {
+  border:none;
+  background-color: #cdd7ea;
+}
+
+#titulo{
 
 }
 h1{
-  font-family: 'Fleur De Leah', cursive;
+  font-family: 'Fleur De Leah';
   text-align: center;
   font-size: 80px;
   }
@@ -20,4 +81,10 @@ h4{
 p{
   font-family: 'Nanum Myeongjo', serif;
   font-size: 20px;
+}
+
+ #nombres{
+  font-family: 'Fleur De Leah', cursive;
+  text-align: center;
+  font-size: 50px;
 }
